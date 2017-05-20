@@ -15,10 +15,10 @@ public class SortService {
     @Autowired
     private List<SortSelector> sortSelectors;
 
-    public <T extends Comparable<? super T>> T[] getSort(T[] params, SortType sortType) {
+    public <T extends Comparable<? super T>> List<T> getSort(List<T> params, SortType sortType) {
         for (SortSelector selector : sortSelectors) {
             if (selector.getType() == sortType) {
-                return selector.sort(params).orElse((T[]) Lists.newArrayList().toArray());
+                return selector.sort(params).orElse(Lists.newArrayList());
             }
         }
         throw new IllegalArgumentException("not sorted");

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Api(value = "소트 알고리즘", description = "소트 알고리즘", basePath = "/api/sort")
 @RestController
 @RequestMapping("/api/sort")
@@ -20,13 +22,13 @@ public class SortController {
 
     @ApiOperation(value = "버블 소트", notes = "버블 소트")
     @RequestMapping("/bubble")
-    public Integer[] bubbleSort(@RequestParam(required = false) Integer[] params) {
+    public List<Integer> bubbleSort(@RequestParam(required = true) List<Integer> params) {
         return sortService.getSort(params, SortType.BUBBLE);
     }
 
     @ApiOperation(value = "선택 소트", notes = "선택 소트")
     @RequestMapping("/select")
-    public Integer[] selectSort(@RequestParam(required = false) Integer[] params) {
+    public List<Integer> selectSort(@RequestParam(required = true) List<Integer> params) {
         return sortService.getSort(params, SortType.SELECT);
     }
 }
