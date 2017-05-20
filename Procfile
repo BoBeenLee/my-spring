@@ -1,1 +1,1 @@
-web: web: build/install/my-spring/bin/my-spring
+web: build/install/my-spring/bin/my-spring
