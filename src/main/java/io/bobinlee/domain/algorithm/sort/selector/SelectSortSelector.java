@@ -6,20 +6,18 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-import static org.springframework.util.ObjectUtils.isEmpty;
-
+import static io.bobinlee.domain.algorithm.sort.SortType.SELECT;
 
 @Component
-public class BubbleSortSelector implements SortSelector {
+public class SelectSortSelector implements SortSelector {
+
     @Override
     public <T extends Comparable<? super T>> Optional<T[]> sort(T[] params) {
-        if (isEmpty(params)) {
-            return Optional.empty();
-        }
         for (int i = 0; i < params.length; i++) {
-            for (int j = 0; j < params.length - i - 1; j++) {
-                if (params[j].compareTo(params[j + 1]) > 0) {
-                    SortHelper.swap(params, j, j + 1);
+            int maxIdx = 0;
+            for (int j = 1; j < params.length - i; j++) {
+                if (params[maxIdx].compareTo(params[j]) > 0) {
+                    SortHelper.swap(params, maxIdx, j);
                 }
             }
         }
@@ -28,6 +26,6 @@ public class BubbleSortSelector implements SortSelector {
 
     @Override
     public SortType getType() {
-        return SortType.BUBBLE;
+        return SELECT;
     }
 }

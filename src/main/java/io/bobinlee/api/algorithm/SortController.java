@@ -23,4 +23,10 @@ public class SortController {
     public Integer[] bubbleSort(@RequestParam(required = false) Integer[] params) {
         return sortService.getSort(params, SortType.BUBBLE);
     }
+
+    @ApiOperation(value = "선택 소트", notes = "선택 소트")
+    @RequestMapping("/bubble")
+    public Integer[] selectSort(@RequestParam(required = false) Integer[] params) {
+        return sortService.getSort(params, SortType.SELECT);
+    }
 }
