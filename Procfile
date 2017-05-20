@@ -1,1 +1,1 @@
-web: build/install/my-spring/bin/my-spring
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/my-spring-0.0.1-SNAPSHOT.war
