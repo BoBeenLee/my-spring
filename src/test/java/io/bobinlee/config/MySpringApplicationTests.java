@@ -1,4 +1,4 @@
-package io.bobinlee;
+package io.bobinlee.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
