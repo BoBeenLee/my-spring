@@ -1,1 +1,1 @@
-web: java -jar target/my-spring-0.0.1-SNAPSHOT.war
+web: web: build/install/my-spring/bin/my-spring
